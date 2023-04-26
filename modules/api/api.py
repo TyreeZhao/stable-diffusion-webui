@@ -917,6 +917,7 @@ class Api:
         return bucket, key
 
     def download_s3files(self, s3uri, path):
+        print("download_s3files s3uri", s3uri, "path: ", path)
         global cache
 
         pos = s3uri.find('/', 5)
@@ -925,6 +926,8 @@ class Api:
 
         s3_bucket = s3_resource.Bucket(bucket)
         objs = list(s3_bucket.objects.filter(Prefix=key))
+
+        print("objs: ", objs)
 
         if os.path.isfile('cache'):
             cache = json.load(open('cache', 'r'))
