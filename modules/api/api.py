@@ -736,6 +736,12 @@ class Api:
             return b64images
 
     def invocations(self, req: InvocationsRequest):
+
+        dir_list = os.listdir('/tmp')
+        print(dir_list)
+        embb = os.listdir('/tmp/embeddings')
+        print(embb)
+
         print('-------invocation------')
         print(req)
 
